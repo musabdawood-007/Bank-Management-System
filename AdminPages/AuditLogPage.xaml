@@ -1,0 +1,26 @@
+<Page x:Class="BankManagementSystem.AdminPages.AuditLogPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Audit Log">
+
+    <Border x:Name="PageRoot" Style="{StaticResource CardStyle}" Opacity="0" RenderTransformOrigin="0.5,0">
+        <Border.RenderTransform>
+            <TranslateTransform Y="20"/>
+        </Border.RenderTransform>
+        <StackPanel>
+            <TextBlock Text="Audit Log" FontSize="16" FontWeight="SemiBold" Foreground="#111827" Margin="0,0,0,4"/>
+            <TextBlock Text="Each entry is cryptographically signed with SHA-256 for data integrity verification."
+                       FontSize="12" Foreground="#6B7280" Margin="0,0,0,16"/>
+            <DataGrid x:Name="AuditGrid" Style="{StaticResource ModernDataGrid}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID" Binding="{Binding LogId}" Width="50"/>
+                    <DataGridTextColumn Header="Action Type" Binding="{Binding ActionType}" Width="140"/>
+                    <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="*"/>
+                    <DataGridTextColumn Header="Performed By" Binding="{Binding PerformedBy}" Width="110"/>
+                    <DataGridTextColumn Header="Date" Binding="{Binding ActionDate, StringFormat='{}{0:yyyy-MM-dd HH:mm}'}" Width="140"/>
+                    <DataGridTextColumn Header="Data Signature (SHA-256)" Binding="{Binding DataSignature}" Width="200"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+    </Border>
+</Page>

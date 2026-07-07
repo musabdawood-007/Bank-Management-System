@@ -1,0 +1,60 @@
+<Page x:Class="BankManagementSystem.AdminPages.ManageCustomersPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Manage Customers">
+
+    <Grid x:Name="PageRoot" Opacity="0" RenderTransformOrigin="0.5,0">
+        <Grid.RenderTransform>
+            <TranslateTransform Y="20"/>
+        </Grid.RenderTransform>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Search Bar -->
+        <Border Style="{StaticResource CardStyle}" Grid.Row="0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBox x:Name="SearchBox" Style="{StaticResource ModernTextBox}"
+                         Margin="0,0,12,0"/>
+                <Button Grid.Column="1" Style="{StaticResource BlueButton}"
+                        Content="Search" Click="Search_Click" Width="120"/>
+            </Grid>
+        </Border>
+
+        <!-- Action Buttons -->
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,0,0,16">
+            <Button Style="{StaticResource GreenButton}" Content="Activate"
+                    Click="Activate_Click" Width="120" Margin="0,0,8,0"/>
+            <Button Style="{StaticResource AmberButton}" Content="Freeze"
+                    Click="Freeze_Click" Width="120" Margin="0,0,8,0"/>
+            <Button Style="{StaticResource RedButton}" Content="Close"
+                    Click="Close_Click" Width="120"/>
+        </StackPanel>
+
+        <!-- DataGrid -->
+        <Border Style="{StaticResource CardStyle}" Grid.Row="2">
+            <DataGrid x:Name="CustomersGrid" Style="{StaticResource ModernDataGrid}"
+                      SelectionChanged="CustomersGrid_SelectionChanged">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Name" Binding="{Binding FullName}" Width="150"/>
+                    <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="180"/>
+                    <DataGridTextColumn Header="Phone" Binding="{Binding Phone}" Width="120"/>
+                    <DataGridTextColumn Header="CNIC" Binding="{Binding CNIC}" Width="130"/>
+                    <DataGridTextColumn Header="City" Binding="{Binding City}" Width="100"/>
+                    <DataGridTextColumn Header="Account #" Binding="{Binding AccountNumber}" Width="150"/>
+                    <DataGridTextColumn Header="Type" Binding="{Binding AccountType}" Width="80"/>
+                    <DataGridTextColumn Header="Balance" Binding="{Binding Balance, StringFormat='PKR {0:N2}'}" Width="120"/>
+                    <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="80"/>
+                    <DataGridTextColumn Header="Created" Binding="{Binding CreatedDate, StringFormat='{}{0:yyyy-MM-dd}'}" Width="100"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Border>
+    </Grid>
+</Page>

@@ -1,0 +1,70 @@
+<Page x:Class="BankManagementSystem.CustomerPages.SettingsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Settings">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto" Padding="0,0,0,16">
+        <StackPanel x:Name="PageRoot" MaxWidth="700" HorizontalAlignment="Left"
+                    Opacity="0" RenderTransformOrigin="0.5,0">
+            <StackPanel.RenderTransform>
+                <TranslateTransform Y="20"/>
+            </StackPanel.RenderTransform>
+            <!-- Profile Info -->
+            <Border Style="{StaticResource CardStyle}">
+                <StackPanel>
+                    <TextBlock Text="Profile Information" FontSize="18" FontWeight="SemiBold" Foreground="#111827" Margin="0,0,0,20"/>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="160"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Grid.Column="0">
+                            <TextBlock Text="Account Number" Foreground="#6B7280" FontSize="13" Margin="0,0,0,16"/>
+                            <TextBlock Text="Full Name" Foreground="#6B7280" FontSize="13" Margin="0,0,0,16"/>
+                            <TextBlock Text="Email" Foreground="#6B7280" FontSize="13" Margin="0,0,0,16"/>
+                            <TextBlock Text="Phone" Foreground="#6B7280" FontSize="13" Margin="0,0,0,16"/>
+                            <TextBlock Text="City" Foreground="#6B7280" FontSize="13" Margin="0,0,0,16"/>
+                            <TextBlock Text="Account Type" Foreground="#6B7280" FontSize="13"/>
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="1">
+                            <TextBlock x:Name="ProfileAccountNumber" Foreground="#111827" FontSize="13" FontWeight="Medium" Margin="0,0,0,16"/>
+                            <TextBlock x:Name="ProfileFullName" Foreground="#111827" FontSize="13" FontWeight="Medium" Margin="0,0,0,16"/>
+                            <TextBlock x:Name="ProfileEmail" Foreground="#111827" FontSize="13" FontWeight="Medium" Margin="0,0,0,16"/>
+                            <TextBlock x:Name="ProfilePhone" Foreground="#111827" FontSize="13" FontWeight="Medium" Margin="0,0,0,16"/>
+                            <TextBlock x:Name="ProfileCity" Foreground="#111827" FontSize="13" FontWeight="Medium" Margin="0,0,0,16"/>
+                            <TextBlock x:Name="ProfileAccountType" Foreground="#111827" FontSize="13" FontWeight="Medium"/>
+                        </StackPanel>
+                    </Grid>
+                </StackPanel>
+            </Border>
+
+            <!-- Change PIN -->
+            <Border Style="{StaticResource CardStyle}">
+                <StackPanel>
+                    <TextBlock Text="Change PIN" FontSize="18" FontWeight="SemiBold" Foreground="#111827" Margin="0,0,0,20"/>
+
+                    <TextBlock Text="Current PIN" Style="{StaticResource FieldLabel}"/>
+                    <PasswordBox x:Name="OldPinBox" Style="{StaticResource ModernPasswordBox}"
+                                 MaxLength="4" Margin="0,0,0,16"/>
+
+                    <TextBlock Text="New PIN" Style="{StaticResource FieldLabel}"/>
+                    <PasswordBox x:Name="NewPinBox" Style="{StaticResource ModernPasswordBox}"
+                                 MaxLength="4" Margin="0,0,0,16"/>
+
+                    <TextBlock Text="Confirm New PIN" Style="{StaticResource FieldLabel}"/>
+                    <PasswordBox x:Name="ConfirmPinBox" Style="{StaticResource ModernPasswordBox}"
+                                 MaxLength="4" Margin="0,0,0,8"/>
+
+                    <!-- Message -->
+                    <TextBlock x:Name="MessageText" FontSize="13" TextWrapping="Wrap" Margin="0,8,0,16" Visibility="Collapsed"/>
+
+                    <Button Style="{StaticResource PrimaryButton}" Content="Change PIN"
+                            Click="ChangePin_Click" Width="160" HorizontalAlignment="Left"/>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</Page>

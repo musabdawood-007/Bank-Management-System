@@ -1,0 +1,45 @@
+<Page x:Class="BankManagementSystem.CustomerPages.TransferPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Transfer">
+
+    <StackPanel x:Name="PageRoot" MaxWidth="500" HorizontalAlignment="Left"
+                Opacity="0" RenderTransformOrigin="0.5,0">
+        <StackPanel.RenderTransform>
+            <TranslateTransform Y="20"/>
+        </StackPanel.RenderTransform>
+        <!-- Balance Card -->
+        <Border Style="{StaticResource StatCardStyle}" Background="{StaticResource StatPurpleGradient}" Margin="0,0,0,24">
+            <StackPanel>
+                <TextBlock Text="Current Balance" Foreground="#DDD6FE" FontSize="12" FontWeight="Medium" Margin="0,0,0,4"/>
+                <TextBlock x:Name="BalanceText" Text="PKR 0" Foreground="White" FontSize="28" FontWeight="Bold"/>
+            </StackPanel>
+        </Border>
+
+        <!-- Form -->
+        <Border Style="{StaticResource CardStyle}">
+            <StackPanel>
+                <TextBlock Text="Transfer Funds" FontSize="18" FontWeight="SemiBold" Foreground="#111827" Margin="0,0,0,20"/>
+
+                <TextBlock Text="Target Account Number" Style="{StaticResource FieldLabel}"/>
+                <TextBox x:Name="TargetAccountBox" Style="{StaticResource ModernTextBox}" Margin="0,0,0,16"/>
+
+                <TextBlock Text="Amount (PKR)" Style="{StaticResource FieldLabel}"/>
+                <TextBox x:Name="AmountBox" Style="{StaticResource ModernTextBox}" Margin="0,0,0,16"/>
+
+                <TextBlock Text="Description" Style="{StaticResource FieldLabel}"/>
+                <TextBox x:Name="DescriptionBox" Style="{StaticResource ModernTextBox}" Margin="0,0,0,8"/>
+
+                <!-- Message -->
+                <TextBlock x:Name="MessageText" FontSize="13" TextWrapping="Wrap" Margin="0,8,0,16" Visibility="Collapsed"/>
+
+                <StackPanel Orientation="Horizontal">
+                    <Button Style="{StaticResource PrimaryButton}" Content="Transfer"
+                            Click="Transfer_Click" Width="160" Margin="0,0,12,0"/>
+                    <Button Style="{StaticResource SecondaryButton}" Content="Clear"
+                            Click="Clear_Click" Width="120"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+    </StackPanel>
+</Page>
